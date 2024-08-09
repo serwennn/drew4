@@ -76,4 +76,11 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			log.Printf("Could not send message to channel %s: %s", m.ChannelID, err)
 		}
 	}
+
+	if m.Content == "ton" {
+		_, err := s.ChannelMessageSendReply(m.ChannelID, "YOU SAID IT!! YOU SAID TON! YOU SAID TON!!", m.Reference())
+		if err != nil {
+			log.Printf("Could not send message to channel %s: %s", m.ChannelID, err)
+		}
+	}
 }
